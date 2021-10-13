@@ -45,6 +45,7 @@ class Game extends Controller
         //INSERT
         $success = $this->model->tambah($data);
         if ($success) {
+            session()->setFlashdata('message', ' Berhasil di Tambahkan ');
             return redirect()->to(base_url('game'));
         }
     }

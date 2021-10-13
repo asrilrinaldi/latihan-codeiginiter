@@ -4,6 +4,18 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $judul ?></h1>
 
+    <?php if (session()->get('message')) :  ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Data Game <strong><?= session()->getFlashdata('message') ?></strong>
+        </div>
+        <script>
+            $("alert").alert();
+        </script>
+    <?php endif;  ?>
+
     <div class="card">
         <div class="card-header">
             <!-- button modal -->
@@ -70,7 +82,7 @@
                     <div class="form-group mb-0">
                         <label for="nama">Nama</label><br>
                         <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama">
-                    </div>
+                    </div><br>
                     <div class="form-group mb-0">
                         <label for="genre">Genre</label><br>
                         <select name="genre" id="genre" class="form-control">
@@ -79,11 +91,11 @@
                             <option value="Moba">Moba</option>
                             <option value="Puzzle">Puzzle</option>
                         </select>
-                    </div>
+                    </div><br>
                     <div class="form-group mb-0">
                         <label for="ukuran">Ukuran</label><br>
                         <input type="text" name="ukuran" id="ukuran" class="form-control" placeholder="Ukuran Game">
-                    </div>
+                    </div><br>
                     <div class="form-group mb-0">
                         <label for="tahun">Tahun</label><br>
                         <select name="tahun" id="tahun" class="form-control">
@@ -96,7 +108,7 @@
                             <option value="2005">2005</option>
                             <option value="2006">2006</option>
                         </select>
-                    </div>
+                    </div><br>
 
             </div>
             <div class="modal-footer">
