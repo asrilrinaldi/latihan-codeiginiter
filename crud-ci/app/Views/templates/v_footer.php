@@ -45,6 +45,12 @@
    <!-- Custom scripts for all pages-->
    <script src="assets/js/sb-admin-2.min.js"></script>
 
+   <script>
+       $(document).on('click', '#btn-hapus', function() {
+           $('.modal-body #id').val($(this).data('id'));
+       })
+   </script>
+
    </body>
 
    </html>
