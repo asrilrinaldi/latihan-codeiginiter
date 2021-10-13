@@ -20,4 +20,8 @@ class M_Game extends Model
     {
         return $this->db->table('game')->insert($data);
     }
+    public function hapus($id)
+    {
+        return $this->db->table('game')->delete(['id' => $id]);
+    }
 }
