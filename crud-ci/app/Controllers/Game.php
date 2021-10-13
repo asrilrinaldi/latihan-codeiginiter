@@ -29,7 +29,7 @@ class Game extends Controller
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
-        echo view('game/index.php', $data);
+        echo view('game/index', $data);
         echo view('templates/v_footer');
     }
 
@@ -45,8 +45,19 @@ class Game extends Controller
         //INSERT
         $success = $this->model->tambah($data);
         if ($success) {
-            session()->setFlashdata('message', ' Berhasil di Tambahkan ');
-            return redirect()->to(base_url('game'));
+            session()->setFlashdata('message', 'Berhasil di Tambahkan');
+            return redirect()->to(base_url('/game'));
+        }
+    }
+
+    public function hapus()
+    {
+
+        $id = $this->request->getPost('id');
+        $success = $this->model->hapus($id);
+        if ($success) {
+            session()->setFlashdata('message', 'Berhasil di Hapus');
+            return redirect()->to(base_url('/game'));
         }
     }
 }
