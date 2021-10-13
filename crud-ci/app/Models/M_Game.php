@@ -7,9 +7,11 @@ use CodeIgniter\Model;
 
 class M_Game extends Model
 {
+    protected $table = 'game';
     public function __construct()
     {
         $this->db = db_connect();
+        $this->builder = $this->db->table($this->table);
     }
 
     public function getAllData()
@@ -23,5 +25,9 @@ class M_Game extends Model
     public function hapus($id)
     {
         return $this->db->table('game')->delete(['id' => $id]);
+    }
+    public function edit($data, $id)
+    {
+        return $this->builder->update($data, ['id' => $id]);
     }
 }
