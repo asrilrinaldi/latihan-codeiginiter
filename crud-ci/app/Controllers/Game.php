@@ -7,12 +7,23 @@ use App\Models\M_Game;
 
 class Game extends Controller
 {
+    /**
+     * Instance of the main Request object.
+     *
+     * @var IncomingRequest
+     */
+    protected $request;
+
+    public function __construct()
+    {
+        $this->model = new M_Game;
+    }
+
     public function index()
     {
-        $model = new M_Game();
         $data = [
             'judul' => 'Data Game',
-            'game' => $model->getAllData()
+            'game' => $this->model->getAllData()
         ];
 
         echo view('templates/v_header', $data);
@@ -20,5 +31,21 @@ class Game extends Controller
         echo view('templates/v_topbar');
         echo view('game/index.php', $data);
         echo view('templates/v_footer');
+    }
+
+    public function tambah()
+    {
+        $data = [
+            'nama' => $this->request->getPost('nama'),
+            'genre' => $this->request->getPost('genre'),
+            'ukuran' => $this->request->getPost('ukuran'),
+            'tahun' => $this->request->getPost('tahun')
+        ];
+
+        //INSERT
+        $success = $this->model->tambah($data);
+        if ($success) {
+            return redirect()->to(base_url('game'));
+        }
     }
 }
