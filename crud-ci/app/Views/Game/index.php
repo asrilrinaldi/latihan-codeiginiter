@@ -6,7 +6,11 @@
 
     <div class="card">
         <div class="card-header">
-            <button class="btn btn-primary"><i class="fa fa-plus">&nbsp;</i>Tambah Data</button>
+            <!-- button modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTambah">
+                <i class="fa fa-plus">&nbsp;</i>
+                Tambah Data
+            </button>
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -50,3 +54,54 @@
 
 </div>
 <!-- End of Main Content -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalTambah">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Tambah Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('game/tambah'); ?>" method="POST">
+                    <div class="form-group">
+                        <label for="nama">Nama</label><br>
+                        <input type="text" name="nama" id="nama" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label><br>
+                        <select name="genre" id="genre" class="form-control">
+                            <option value="Actions">Actions</option>
+                            <option value="Moba">Moba</option>
+                            <option value="Puzzle">Puzzle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ukuran">Ukuran</label><br>
+                        <input type="text" name="ukuran" id="ukuran" class="form-control">MBS
+                    </div>
+                    <div class="form-group">
+                        <label for="tahun">Tahun</label><br>
+                        <select name="tahun" id="tahun" class="form-control">
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                        </select>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
