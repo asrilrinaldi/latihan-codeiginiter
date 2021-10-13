@@ -67,25 +67,27 @@
             </div>
             <div class="modal-body">
                 <form action="<?= base_url('game/tambah'); ?>" method="POST">
-                    <div class="form-group">
+                    <div class="form-group mb-0">
                         <label for="nama">Nama</label><br>
-                        <input type="text" name="nama" id="nama" class="form-control">
+                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-0">
                         <label for="genre">Genre</label><br>
                         <select name="genre" id="genre" class="form-control">
+                            <option value="">-Pilih Genre-</option>
                             <option value="Actions">Actions</option>
                             <option value="Moba">Moba</option>
                             <option value="Puzzle">Puzzle</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-0">
                         <label for="ukuran">Ukuran</label><br>
-                        <input type="text" name="ukuran" id="ukuran" class="form-control">MBS
+                        <input type="text" name="ukuran" id="ukuran" class="form-control" placeholder="Ukuran Game">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-0">
                         <label for="tahun">Tahun</label><br>
                         <select name="tahun" id="tahun" class="form-control">
+                            <option value="">-Pilih Tahun-</option>
                             <option value="2000">2000</option>
                             <option value="2001">2001</option>
                             <option value="2002">2002</option>
@@ -101,7 +103,7 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
+            </form>
         </div>
-        </form>
     </div>
 </div>
