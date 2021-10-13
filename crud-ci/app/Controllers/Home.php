@@ -13,7 +13,7 @@ class Home extends BaseController
         echo view('templates/v_header', $data);
         echo view('templates/v_sidebar');
         echo view('templates/v_topbar');
-        echo view('home/index.php');
+        echo view('home/index');
         echo view('templates/v_footer');
     }
 }
