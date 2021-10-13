@@ -50,6 +50,25 @@ class Game extends Controller
         }
     }
 
+    public function edit()
+    {
+        $id = $this->request->getPost('id');
+        $data = [
+            'nama' => $this->request->getPost('nama'),
+            'genre' => $this->request->getPost('genre'),
+            'ukuran' => $this->request->getPost('ukuran'),
+            'tahun' => $this->request->getPost('tahun')
+        ];
+
+        //INSERT
+
+        $success = $this->model->edit($data, $id);
+        if ($success) {
+            session()->setFlashdata('message', 'Berhasil di Edit');
+            return redirect()->to(base_url('/game'));
+        }
+    }
+
     public function hapus()
     {
 
